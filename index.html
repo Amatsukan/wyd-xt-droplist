@@ -4,84 +4,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DROP LIST DO XT - Tema Fantasia</title>
+    <title>DROP LIST DO XT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=MedievalSharp&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            background-image: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+            background-color: #000000;
+            background-image: url('https://www.wydxtreme.com.br/img/bg.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
         }
-        .font-cinzel {
-            font-family: 'Cinzel', serif;
+
+        .font-title {
+            font-family: 'MedievalSharp', cursive;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8), 0 0 12px rgba(239, 68, 68, 0.7);
         }
+
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: #0f172a;
+            background: #1a0606;
         }
+
         ::-webkit-scrollbar-thumb {
-            background: #334155;
+            background: #4f1d1d;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
+            background: #7f1d1d;
         }
+
         /* Style for highlighted search text */
         .highlight {
-            background-color: #22d3ee;
-            color: #0f172a;
+            background-color: #f59e0b; /* amber-500 */
+            color: #1e293b;
             font-weight: 600;
             padding: 1px 4px;
             border-radius: 3px;
+        }
+
+        /* Custom radio button styles */
+        .custom-radio:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+            border-color: #dc2626; /* red-600 */
+        }
+        
+        /* Fade-in animation for list items */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        
+        #suggestions-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        #suggestions-box::-webkit-scrollbar-thumb {
+            background: #7f1d1d;
         }
     </style>
 </head>
 
 <body class="text-slate-200">
 
-    <div class="container mx-auto p-4 md:p-8 max-w-7xl min-h-screen flex items-center">
-        <div class="w-full bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl shadow-2xl p-6 md:p-8">
-            <h1 class="font-cinzel text-3xl md:text-5xl font-bold text-center text-white mb-2 tracking-widest">
-                DROP LIST DO XT
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl min-h-screen flex items-center justify-center">
+        <div class="w-full bg-black/75 backdrop-blur-sm border-2 border-red-800/50 rounded-2xl shadow-2xl shadow-red-900/50 p-6 md:p-8">
+            <h1 class="font-title text-4xl md:text-6xl font-bold text-center text-white mb-2 tracking-wider">
+                EXTREME DROP LIST
             </h1>
             <p class="text-center text-slate-400 mb-8">Procure pelo nome do item, monstro ou local.</p>
 
+            <!-- Search Filters -->
+            <div class="mb-6 flex flex-col sm:flex-row justify-center items-center gap-x-6 gap-y-3 text-slate-300">
+                <span class="font-semibold text-lg">Filtrar por:</span>
+                <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2">
+                    <label class="flex items-center cursor-pointer p-2 rounded-md hover:bg-red-900/40 transition-colors">
+                        <input type="radio" name="search-filter" value="all" class="custom-radio appearance-none h-5 w-5 rounded-full border-2 border-slate-500 bg-black/50 checked:bg-red-600 transition duration-200" checked>
+                        <span class="ml-2">Tudo</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer p-2 rounded-md hover:bg-red-900/40 transition-colors">
+                        <input type="radio" name="search-filter" value="item" class="custom-radio appearance-none h-5 w-5 rounded-full border-2 border-slate-500 bg-black/50 checked:bg-red-600 transition duration-200">
+                        <span class="ml-2">Item</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer p-2 rounded-md hover:bg-red-900/40 transition-colors">
+                        <input type="radio" name="search-filter" value="monster" class="custom-radio appearance-none h-5 w-5 rounded-full border-2 border-slate-500 bg-black/50 checked:bg-red-600 transition duration-200">
+                        <span class="ml-2">Monstro</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer p-2 rounded-md hover:bg-red-900/40 transition-colors">
+                        <input type="radio" name="search-filter" value="zone" class="custom-radio appearance-none h-5 w-5 rounded-full border-2 border-slate-500 bg-black/50 checked:bg-red-600 transition duration-200">
+                        <span class="ml-2">Local</span>
+                    </label>
+                </div>
+            </div>
+
             <div class="relative mb-6">
-                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <svg class="h-5 w-5 text-slate-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                     </svg>
                 </div>
-                <input type="text" id="search-input" placeholder="Digite sua busca aqui..."
-                    class="w-full bg-slate-900/50 border-2 border-slate-600 rounded-lg py-3 pl-11 pr-4 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition duration-300">
+                <input type="text" id="search-input" placeholder="Digite sua busca aqui..." class="w-full bg-black/50 border-2 border-slate-600 rounded-lg py-3 pl-11 pr-4 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition duration-300" autocomplete="off">
+                <div id="suggestions-box" class="absolute z-20 w-full bg-[#110505] border border-red-800/70 rounded-b-lg -mt-1 hidden shadow-lg max-h-60 overflow-y-auto"></div>
             </div>
 
-            <!-- Table Header -->
-            <div class="hidden md:grid grid-cols-3 gap-4 px-4 pb-2 border-b border-slate-700 font-bold text-slate-400">
-                <div>Item</div>
-                <div>Monstros</div>
-                <div>Local</div>
-            </div>
+            <div id="results-counter" class="text-slate-400 text-sm mb-2 px-1"></div>
 
-            <!-- Results List -->
-            <ul id="results-list" class="mt-4 space-y-2 max-h-[40vh] overflow-y-auto pr-2">
-                <!-- Search results will be injected here by JavaScript -->
-            </ul>
-             <!-- Initial State Message -->
+            <ul id="results-list" class="mt-2 space-y-4 max-h-[40vh] overflow-y-auto pr-2"></ul>
             <div id="initial-message" class="text-center py-10 text-slate-500">
-                <svg class="mx-auto h-12 w-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <p class="mt-4 text-lg">Comece a digitar para ver os resultados.</p>
+                 <svg class="mx-auto h-12 w-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg><p class="mt-4 text-lg">Comece a digitar para ver os resultados.</p>
             </div>
 
-            <div class="mt-8 border-t border-slate-700 pt-6 text-slate-400 text-sm">
+            <div class="mt-8 border-t border-red-800/50 pt-6 text-slate-400 text-sm">
                 <h4 class="font-semibold text-lg text-white mb-3">Informações Importantes:</h4>
                 <ol class="list-decimal list-inside space-y-2">
                     <li>Caso o item que você pesquisou não esteja aparecendo, reporte ao AdminNando para ser adicionado na DROPLIST.</li>
@@ -96,87 +141,142 @@
         const searchInput = document.getElementById("search-input");
         const resultsList = document.getElementById("results-list");
         const initialMessage = document.getElementById("initial-message");
+        const resultsCounter = document.getElementById("results-counter");
+        const filterRadios = document.querySelectorAll('input[name="search-filter"]');
+        const suggestionsBox = document.getElementById("suggestions-box");
+        
+        // dropData is now loaded from data.js
 
-        // Function to render the list of items
         function renderList(items, searchTerm = '') {
-            resultsList.innerHTML = ""; // Clear current list
+            resultsList.innerHTML = "";
+            resultsCounter.textContent = (items.length > 0 && searchTerm) ? `${items.length} resultado(s) encontrado(s).` : '';
 
             if (items.length === 0 && searchTerm) {
-                initialMessage.classList.add('hidden');
-                resultsList.innerHTML = `<li class="text-center text-slate-500 py-4">Nenhum resultado encontrado para "<span class="text-slate-300 font-semibold">${searchTerm}</span>".</li>`;
+                initialMessage.classList.remove('hidden');
+                initialMessage.innerHTML = `<div class="text-center text-slate-500 py-4">Nenhum resultado encontrado para "<span class="text-slate-300 font-semibold">${searchTerm}</span>".</div>`;
                 return;
             }
-            
-            if (items.length === 0) {
-                 initialMessage.classList.remove('hidden');
-                 return;
+            if (items.length === 0 && !searchTerm) {
+                initialMessage.classList.remove('hidden');
+                return;
             }
-            
             initialMessage.classList.add('hidden');
 
-            for (const item of items) {
-                const { item_name, monsters, zones } = item;
+            items.forEach((item, index) => {
                 const li = document.createElement("li");
-                li.className = "grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-2 px-4 py-3 bg-slate-800/50 rounded-lg hover:bg-slate-700/60 transition duration-200 break-words";
-                
-                // Highlight function
+                li.className = "flex flex-col gap-y-3 p-4 bg-black/40 rounded-lg border border-slate-700 hover:bg-red-900/30 hover:border-red-600 transition-all duration-300 transform hover:scale-[1.02] fade-in";
+                li.style.animationDelay = `${index * 50}ms`;
+
                 const highlight = (text) => {
                     if (!searchTerm) return text;
-                    // Sanitize search term for regex
                     const sanitizedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                     const regex = new RegExp(`(${sanitizedSearchTerm})`, 'gi');
                     return text.replace(regex, `<span class="highlight">$1</span>`);
                 };
 
-                // Join arrays to string for display
-                const monstersString = monsters.join(', ');
-                const zonesString = zones.join(', ');
+                const monstersString = item.monsters.length > 0 ? item.monsters.join(', ') : 'N/A';
+                const zonesString = item.zones.length > 0 ? item.zones.join(', ') : 'N/A';
 
-                // Add mobile headers and highlighted content
                 li.innerHTML = `
-                    <div>
-                        <span class="md:hidden font-semibold text-slate-400">Item: </span>
-                        <span>${highlight(item_name)}</span>
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-slate-800 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.944a12.02 12.02 0 009 2.056c4.522 0 8.34-1.994 9-4.944a12.02 12.02 0 00-1.382-9.028z" /></svg>
+                        </div>
+                        <div class="flex-grow min-w-0"><span class="block text-xs text-amber-400 uppercase tracking-wider">Item</span><span class="font-bold text-lg text-white truncate">${highlight(item.item_name)}</span></div>
                     </div>
-                    <div>
-                        <span class="md:hidden font-semibold text-slate-400">Monstros: </span>
-                        <span>${highlight(monstersString)}</span>
-                    </div>
-                    <div>
-                        <span class="md:hidden font-semibold text-slate-400">Local: </span>
-                        <span>${highlight(zonesString)}</span>
-                    </div>
-                `;
+                    <div class="pl-11 border-t border-slate-700/50 pt-3 grid grid-cols-1 gap-y-3 text-sm">
+                        <div class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.014a7.985 7.985 0 011.043-.985A7 7 0 0117.657 18.657z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg><div><span class="block text-xs text-slate-400">Monstros</span><span class="text-slate-300 break-words">${highlight(monstersString)}</span></div></div>
+                        <div class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg><div><span class="block text-xs text-slate-400">Local</span><span class="text-slate-300 break-words">${highlight(zonesString)}</span></div></div>
+                    </div>`;
                 resultsList.appendChild(li);
-            }
+            });
         }
 
-        // Event listener for the search input
-        searchInput.addEventListener("keyup", function(event) {
-            const searchTerm = this.value.trim();
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+            const filterType = document.querySelector('input[name="search-filter"]:checked').value;
+            if (!searchTerm) {
+                renderList([]);
+                return;
+            }
+            const lowerCaseSearchTerm = searchTerm.toLowerCase();
+            const filteredData = dropData.filter(item => {
+                const searchInItem = item.item_name.toLowerCase().includes(lowerCaseSearchTerm);
+                const searchInMonsters = item.monsters.some(m => m.toLowerCase().includes(lowerCaseSearchTerm));
+                const searchInZones = item.zones.some(z => z.toLowerCase().includes(lowerCaseSearchTerm));
+                switch (filterType) {
+                    case 'item': return searchInItem;
+                    case 'monster': return searchInMonsters;
+                    case 'zone': return searchInZones;
+                    default: return searchInItem || searchInMonsters || searchInZones;
+                }
+            });
+            renderList(filteredData, searchTerm);
+        }
 
-            if (searchTerm === "") {
-                renderList([]); // Show initial message if search is empty
+        function updateSuggestions() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            const filterType = document.querySelector('input[name="search-filter"]:checked').value;
+            if (searchTerm.length < 2) {
+                suggestionsBox.classList.add('hidden');
                 return;
             }
 
-            // Filter the data based on search term (case-insensitive)
-            const lowerCaseSearchTerm = searchTerm.toLowerCase();
-            const filteredData = dropData.filter(item => {
-                const searchInMonsters = item.monsters.some(monster => monster.toLowerCase().includes(lowerCaseSearchTerm));
-                const searchInZones = item.zones.some(zone => zone.toLowerCase().includes(lowerCaseSearchTerm));
-                
-                return item.item_name.toLowerCase().includes(lowerCaseSearchTerm) ||
-                       searchInMonsters ||
-                       searchInZones;
+            const suggestions = new Set();
+            const limit = 8;
+            
+            const addSuggestion = (value) => {
+                if (value.toLowerCase().includes(searchTerm)) suggestions.add(value);
+            };
+
+            for (const item of dropData) {
+                if (suggestions.size >= limit) break;
+                if (filterType === 'item' || filterType === 'all') addSuggestion(item.item_name);
+                if (filterType === 'monster' || filterType === 'all') item.monsters.forEach(addSuggestion);
+                if (filterType === 'zone' || filterType === 'all') item.zones.forEach(addSuggestion);
+            }
+
+            const suggestionsArray = [...suggestions].slice(0, limit);
+            if (suggestionsArray.length > 0) {
+                suggestionsBox.innerHTML = suggestionsArray.map(suggestion => {
+                    const sanitizedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    const regex = new RegExp(`(${sanitizedSearchTerm})`, 'gi');
+                    const highlighted = suggestion.replace(regex, `<span class="text-amber-400 font-semibold">$1</span>`);
+                    return `<div class="p-3 text-slate-300 cursor-pointer hover:bg-red-900/50 transition-colors duration-200 suggestion-item" data-value="${suggestion}">${highlighted}</div>`;
+                }).join('');
+                suggestionsBox.classList.remove('hidden');
+            } else {
+                suggestionsBox.classList.add('hidden');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            searchInput.addEventListener("keyup", (e) => {
+                if (e.key === 'Escape') return suggestionsBox.classList.add('hidden');
+                performSearch();
+                updateSuggestions();
             });
 
-            renderList(filteredData, searchTerm);
+            filterRadios.forEach(radio => radio.addEventListener('change', () => { performSearch(); updateSuggestions(); }));
+
+            suggestionsBox.addEventListener('click', (e) => {
+                const suggestionItem = e.target.closest('.suggestion-item');
+                if (suggestionItem) {
+                    searchInput.value = suggestionItem.dataset.value;
+                    suggestionsBox.classList.add('hidden');
+                    performSearch();
+                    searchInput.focus();
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!searchInput.contains(e.target) && !suggestionsBox.contains(e.target)) {
+                    suggestionsBox.classList.add('hidden');
+                }
+            });
+
+            renderList([]);
         });
-
-        // Initial render (empty state)
-        renderList([]);
-
     </script>
 </body>
 
